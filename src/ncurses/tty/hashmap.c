@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (c) 1998-2009,2010 Free Software Foundation, Inc.              *
+ * Copyright (c) 1998-2011,2014 Free Software Foundation, Inc.              *
  *                                                                          *
  * Permission is hereby granted, free of charge, to any person obtaining a  *
  * copy of this software and associated documentation files (the            *
@@ -73,7 +73,7 @@ AUTHOR
 #define CUR SP_TERMTYPE
 #endif
 
-MODULE_ID("$Id: hashmap.c,v 1.62 2010/04/24 23:46:07 tom Exp $")
+MODULE_ID("$Id: hashmap.c,v 1.64 2014/04/26 18:48:44 juergen Exp $")
 
 #ifdef HASHDEBUG
 
@@ -163,7 +163,7 @@ update_cost_from_blank(SCREEN *sp, NCURSES_CH_T * to)
  * effective. 'blank' indicates whether the line 'to' would become blank.
  */
 static NCURSES_INLINE bool
-cost_effective(SCREEN *sp, const int from, const int to, const bool blank)
+cost_effective(SCREEN *sp, const int from, const int to, const int blank)
 {
     int new_from;
 
@@ -492,7 +492,7 @@ main(int argc GCC_UNUSED, char *argv[]GCC_UNUSED)
 	CharOf(oldtext[n][0]) = CharOf(newtext[n][0]) = '.';
     }
 
-    if (isatty(fileno(stdin)))
+    if (NC_ISATTY(fileno(stdin)))
 	usage();
 
 #ifdef TRACE
